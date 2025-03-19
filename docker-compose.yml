@@ -1,0 +1,8 @@
+version: '3'
+services:
+  monolith-cuaca:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - API_KEY=fc7c95f3018ea8d5664b7312cfed6564

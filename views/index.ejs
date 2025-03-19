@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Cuaca</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>🌤️ Aplikasi Cuaca</h1>
+    <form action="/cuaca" method="get">
+        <input type="text" name="city" placeholder="Masukkan Nama Kota" required>
+        <button type="submit">Cari</button>
+    </form>
+
+    <% if (error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <% if (kota) { %>
+        <h2>Cuaca di <%= kota %></h2>
+        <p>Suhu: <%= suhu %></p>
+        <p>Deskripsi: <%= deskripsi %></p>
+    <% } %>
+</body>
+</html>

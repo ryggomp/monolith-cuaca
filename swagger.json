@@ -1,0 +1,45 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API Cuaca",
+      "description": "API untuk mendapatkan informasi cuaca berdasarkan kota.",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/api/cuaca": {
+        "get": {
+          "summary": "Dapatkan cuaca berdasarkan kota",
+          "parameters": [
+            {
+              "name": "city",
+              "in": "query",
+              "required": false,
+              "description": "Nama kota",
+              "schema": {
+                "tyspe": "tring",
+                "example": "Jakarta"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Sukses mengambil data cuaca",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "kota": "Jakarta",
+                    "suhu": "30°C",
+                    "deskripsi": "cerah"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Kesalahan Server"
+            }
+          }
+        }
+      }
+    }
+  }
+  
