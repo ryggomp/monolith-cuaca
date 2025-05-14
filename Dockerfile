@@ -1,23 +1,20 @@
-# Use an official Node.js runtime as a parent image
+# Use a Node.js base image
 FROM node:16
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY package.json package-lock.json ./
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application files
+# Copy the rest of the application code
 COPY . .
 
-# Set environment variable (API_KEY should be passed at runtime)
-ENV API_KEY=fc7c95f3018ea8d5664b7312cfed6564
-
-# Expose the port the app runs on
+# Expose the port specified in the .env file
 EXPOSE 3000
 
-# Command to run the API server
-CMD ["node", "server.js"]
+# Start the application
+CMD ["npm", "start"]
